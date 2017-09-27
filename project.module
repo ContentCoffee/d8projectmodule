@@ -1,0 +1,73 @@
+<?php
+
+
+/**
+ * Implements hook_entity_type_alter().
+ *
+ * @param array $entityTypes
+ */
+function project_entity_type_alter(array &$entityTypes) {
+
+  // Template for the type class.
+  $ns = 'Drupal\project\Storage\Project%type%Storage';
+
+  // If his entity has a project storage class then use that.
+  foreach ($entityTypes as $type => $data) {
+    $c = str_replace("%type%", _camelize($type), $ns);
+    if (class_exists($c)) {
+      $entityTypes[$type]->setHandlerClass('storage', $c);
+    }
+  }
+}
+
+
+/**
+ * Implements hook_theme
+ *
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ *
+ * @return array
+ */
+function project_theme($existing, $type, $theme, $path) {
+
+  $out = [];
+
+  $nt = \Drupal\node\Entity\NodeType::LoadMultiple();
+  // Create a detail and index for both nodes and terms.
+  foreach ($nt as $bundle => $data) {
+    $out['node/' . $bundle . '/index'] = [
+      'variables' => ['results' => NULL],
+    ];
+
+    $out['node/' . $bundle . '/detail'] = [
+      'variables' => [$bundle => NULL],
+    ];
+  }
+
+  $tt = taxonomy_vocabulary_get_names();
+  foreach ($tt as $bundle => $data) {
+    $out['term/' . $bundle . '/index'] = [
+      'variables' => ['results' => NULL],
+    ];
+
+    $out['term/' . $bundle . '/detail'] = [
+      'variables' => [$bundle => NULL],
+    ];
+  }
+
+  return $out;
+}
+
+
+/**
+ * @param $input
+ * @param string $separator
+ *
+ * @return mixed
+ */
+function _camelize($input, $separator = '_') {
+  return str_replace($separator, '', ucwords($input, $separator));
+}

@@ -1,0 +1,5 @@
+name: 'Project'
+type: module
+description: 'Custom Content and Coffee for a Project'
+package: Custom
+core: '8.x'

@@ -1,0 +1,12 @@
+services:
+
+  project.route_subscriber:
+      class: Drupal\project\Routing\RouteSubscriber
+      tags:
+        - { name: event_subscriber }
+
+  project.page.repository:
+    class: 'Drupal\project\Repository\PageRepository'
+    arguments:
+      - @entity_type.manager
+
