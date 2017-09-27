@@ -71,3 +71,28 @@ function project_theme($existing, $type, $theme, $path) {
 function _camelize($input, $separator = '_') {
   return str_replace($separator, '', ucwords($input, $separator));
 }
+
+/**
+ * Truncate a string
+ *
+ * @param $string
+ * @param $limit
+ * @param string $pad
+ * @return string
+ */
+function _truncate($string, $limit = 40, $pad = "...")
+{
+  // Never truncate a url.
+  if (filter_var($string, FILTER_VALIDATE_URL)) {
+    return $string;
+  }
+
+  $string = trim(strip_tags($string));
+  // return with no change if string is shorter than $limit
+  if (strlen($string) <= $limit) {
+    return $string;
+  }
+
+  // Return it with the pad.
+  return mb_substr($string, 0, ($limit - strlen($pad))) . $pad;
+}
