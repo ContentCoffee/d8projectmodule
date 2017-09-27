@@ -5,3 +5,19 @@ project.node.page.index:
     _title_callback: '\Drupal\project\Controller\Node\PageController::indexTitle'
   requirements:
     _permission: 'access content'
+
+project.403:
+  path: '/403'
+  defaults:
+    _controller: '\Drupal\project\Controller\Node\HomePageController::FourZeroThree'
+    _title_callback: '\Drupal\project\Controller\Node\HomePageController::FourZeroThreeTitle'
+  requirements:
+    _permission: 'access content'
+
+project.404:
+  path: '/404'
+  defaults:
+    _controller: '\Drupal\project\Controller\Node\HomePageController::FourZeroFour'
+    _title_callback: '\Drupal\project\Controller\Node\HomePageController::FourZeroFourTitle'
+  requirements:
+    _permission: 'access content'

@@ -12,4 +12,11 @@ use Drupal\taxonomy\Entity\Term;
 class Category extends Term
 {
 
+  /**
+   * @return mixed
+   */
+  public function getRandomText() {
+    return $this->get('field_random_text')->value;
+  }
+
 }

@@ -38,23 +38,25 @@ function project_theme($existing, $type, $theme, $path) {
   $nt = \Drupal\node\Entity\NodeType::LoadMultiple();
   // Create a detail and index for both nodes and terms.
   foreach ($nt as $bundle => $data) {
-    $out['node/' . $bundle . '/index'] = [
+    $simple = strtolower(_camelize($bundle));
+    $out['node/' . $simple . '/index'] = [
       'variables' => ['results' => NULL],
     ];
 
-    $out['node/' . $bundle . '/detail'] = [
-      'variables' => [$bundle => NULL],
+    $out['node/' . $simple . '/detail'] = [
+      'variables' => [$simple => NULL],
     ];
   }
 
   $tt = taxonomy_vocabulary_get_names();
   foreach ($tt as $bundle => $data) {
-    $out['term/' . $bundle . '/index'] = [
+    $simple = strtolower(_camelize($bundle));
+    $out['term/' . $simple . '/index'] = [
       'variables' => ['results' => NULL],
     ];
 
-    $out['term/' . $bundle . '/detail'] = [
-      'variables' => [$bundle => NULL],
+    $out['term/' . $simple . '/detail'] = [
+      'variables' => [$simple => NULL],
     ];
   }
 
