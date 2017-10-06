@@ -51,35 +51,6 @@ class PageController extends AbstractController
     }
 
     /**
-     * @return array
-     */
-    public function index()
-    {
-        $params = [];
-        $params['page'] = $this->request->get('p') ? $this->request->get('p') : 1;
-
-        $qs = $this->request->query->all();
-        unset($qs['p']);
-        $qs = http_build_query($qs);
-
-        $results = $this->pageRepository->search($params);
-        $results['queryString'] = $qs ? "&" . $qs : '';
-
-        return [
-            '#theme' => $this->themePrefix . 'index',
-            '#results' => $results
-        ];
-    }
-
-    /**
-     * @return string
-     */
-    public function indexTitle()
-    {
-        return 'Bitch Please';
-    }
-
-    /**
      * @param Page $page
      * @return array
      */
