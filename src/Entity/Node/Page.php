@@ -3,6 +3,8 @@
 namespace Drupal\project\Entity\Node;
 
 use Drupal\node\Entity\Node;
+use Drupal\project\Entity\Traits\BaseModelTrait;
+use Drupal\project\Entity\Traits\ContentTrait;
 
 /**
  * Class Page
@@ -10,6 +12,9 @@ use Drupal\node\Entity\Node;
  * @package Drupal\project\Entity\Node
  */
 class Page extends Node {
+
+  use ContentTrait;
+  use BaseModelTrait;
 
   /**
    * @return mixed
@@ -19,17 +24,10 @@ class Page extends Node {
   }
 
   /**
-   * @return mixed
+   * @return \Drupal\Core\Entity\EntityInterface[]
    */
   public function getContent() {
-    return $this->get('field_content')->referencedEntities();
-  }
-
-  /**
-   * @return \Drupal\Core\GeneratedUrl|string
-   */
-  public function getUrl() {
-    return $this->url();
+    return $this->getContentContainer('content');
   }
 
   /**

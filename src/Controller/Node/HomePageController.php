@@ -20,9 +20,14 @@ class HomePageController extends AbstractController
    */
   public function detail(HomePage $homepage)
   {
+    $pagesSingle = $this->singles->getSingleByBundle('pages');
+
     return [
       '#theme' => $this->themePrefix . 'detail',
-      '#homepage' => $homepage
+      '#homepage' => $homepage,
+      '#data' => [
+        'pagesUrl' => $pagesSingle->toUrl()->toString()
+      ],
     ];
   }
 
