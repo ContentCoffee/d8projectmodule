@@ -20,7 +20,7 @@ class Page extends Node {
    * @return mixed
    */
   public function getImage() {
-    return $this->get('field_image')->entity;
+    return $this->get('field_image');
   }
 
   /**
