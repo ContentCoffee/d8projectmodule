@@ -1,0 +1,32 @@
+uuid: 77a48a8a-9fe6-47c8-ae6b-48a4cd470685
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.image
+    - field.field.brick.image.field_image
+  module:
+    - image
+id: brick.image.default
+targetEntityType: brick
+bundle: image
+mode: default
+content:
+  field_image:
+    weight: -4
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

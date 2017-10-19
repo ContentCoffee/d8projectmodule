@@ -1,0 +1,9 @@
+uuid: 53019fe4-bec3-4dc9-974e-9c59065dcc90
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: Text
+type: text
+description: ''

@@ -1,0 +1,44 @@
+uuid: 619bbf48-1028-4302-a29f-8d4d4604ade4
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.call_to_action
+    - field.field.brick.call_to_action.field_button
+    - field.field.brick.call_to_action.field_content
+  module:
+    - link
+    - text
+id: brick.call_to_action.default
+targetEntityType: brick
+bundle: call_to_action
+mode: default
+content:
+  field_button:
+    weight: -4
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_content:
+    weight: -3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

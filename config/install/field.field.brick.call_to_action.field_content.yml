@@ -1,0 +1,21 @@
+uuid: a3a2e98a-6018-47a7-b1b3-c4b7f64482a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.call_to_action
+    - field.storage.brick.field_content
+  module:
+    - text
+id: brick.call_to_action.field_content
+field_name: field_content
+entity_type: brick
+bundle: call_to_action
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,23 @@
+uuid: 1d9fbfc4-a286-433f-8fe7-bf10cd4ee9e5
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.call_to_action
+    - field.storage.brick.field_button
+  module:
+    - link
+id: brick.call_to_action.field_button
+field_name: field_button
+entity_type: brick
+bundle: call_to_action
+label: Button
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

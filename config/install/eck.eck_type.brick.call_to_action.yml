@@ -1,0 +1,9 @@
+uuid: bfabcd52-6010-489e-a107-5c1feaebbd0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Call To Action'
+type: call_to_action
+description: ''

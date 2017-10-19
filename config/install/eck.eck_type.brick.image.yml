@@ -1,0 +1,9 @@
+uuid: be3f52e9-0c03-4448-b384-ac6059e64228
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: Image
+type: image
+description: ''

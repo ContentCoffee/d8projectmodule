@@ -1,0 +1,26 @@
+uuid: 05864ce6-76fa-4c89-9b2f-7db95df54c91
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.brick.section_title
+id: brick.section_title.default
+targetEntityType: brick
+bundle: section_title
+mode: default
+content:
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  content_alignment: true
+  content_container: true
+  content_parent: true
+  content_parent_type: true
+  content_size: true
+  content_weight: true

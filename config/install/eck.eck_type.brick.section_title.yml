@@ -1,0 +1,9 @@
+uuid: 9301b067-bf89-4634-a38b-5f652823c398
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.brick
+name: 'Section Title'
+type: section_title
+description: ''
