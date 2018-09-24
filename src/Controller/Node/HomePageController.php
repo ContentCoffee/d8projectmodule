@@ -20,13 +20,14 @@ class HomePageController extends AbstractController
    */
   public function detail(HomePage $homepage)
   {
-    $pagesSingle = $this->singles->getSingleByBundle('pages');
+    /** @var \Drupal\project\Entity\Node\Pages $pages */
+    $pages = $this->singles->getSingleByBundle('pages');
 
     return [
       '#theme' => $this->themePrefix . 'detail',
       '#homepage' => $homepage,
       '#data' => [
-        'pagesUrl' => $pagesSingle->toUrl()->toString()
+        'pagesUrl' => $pages->getUrl()
       ],
     ];
   }

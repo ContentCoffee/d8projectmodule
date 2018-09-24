@@ -65,14 +65,15 @@ class PageController extends AbstractController {
    */
   public function detail(Page $page) {
 
-    $single = $this->singles->getSingleByBundle('pages');
-    $singleUrl = $single->toUrl()->toString();
+    /** @var \Drupal\project\Entity\Node\Pages $pages */
+    $pages = $this->singles->getSingleByBundle('pages');
+    $pagesUrl = $pages->getUrl();
 
     return [
       '#theme' => $this->themePrefix . 'detail',
       '#page' => $page,
       '#data' => [
-        'pagesUrl' => $singleUrl
+        'pagesUrl' => $pagesUrl
       ],
     ];
   }

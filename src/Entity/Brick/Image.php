@@ -3,6 +3,7 @@
 namespace Drupal\project\Entity\Brick;
 
 use Drupal\eck\Entity\EckEntity;
+use Drupal\project\Entity\Traits\BrickTrait;
 
 /**
  * Class Image
@@ -11,6 +12,7 @@ use Drupal\eck\Entity\EckEntity;
  */
 class Image extends EckEntity {
 
+  use BrickTrait;
 
   public function label() {
 
@@ -26,9 +28,9 @@ class Image extends EckEntity {
 
     $f = $image->entity->url();
 
-    $f = '<br /><img src="'.$f.'" width="25" height="25" />';
+    $f = '<br /><img src="' . $f . '" width="25" height="25" />';
 
-    return $label . ' ('.$w.'x'.$h.')' . $f;
+    return $label . ' (' . $w . 'x' . $h . ')' . $f;
   }
 
   /**

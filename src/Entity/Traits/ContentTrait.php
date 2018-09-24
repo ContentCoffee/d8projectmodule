@@ -44,27 +44,4 @@ trait ContentTrait
   {
     return \Drupal::service('content.manager');
   }
-
-  /**
-   * @return string|null
-   */
-  public function getSize()
-  {
-    if ($this->hasField('c_content_size')) {
-      return $this->get('c_content_size')->value;
-    }
-    return null;
-  }
-
-  /**
-   * @return string|null
-   */
-  public function getAlignment()
-  {
-    if ($this->hasField('c_content_alignment')) {
-      return $this->get('c_content_alignment')->value;
-    }
-    return null;
-  }
-
 }

@@ -7,6 +7,5 @@ services:
 
   project.page.repository:
     class: 'Drupal\project\Repository\PageRepository'
-    arguments:
-      - @entity_type.manager
+    arguments: ['@entity_type.manager']
 

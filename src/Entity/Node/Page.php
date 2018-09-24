@@ -24,6 +24,13 @@ class Page extends Node {
   }
 
   /**
+   * @return mixed
+   */
+  public function getDescription() {
+    return $this->get('field_description')->value;
+  }
+
+  /**
    * @return \Drupal\Core\Entity\EntityInterface[]
    */
   public function getContent() {
