@@ -62,6 +62,18 @@ function project_theme($existing, $type, $theme, $path) {
     ];
   }
 
+  $out['fourzerofour'] = [
+    'variables' => [
+      'data' => NULL
+    ]
+  ];
+
+  $out['fourzerothree'] = [
+    'variables' => [
+      'data' => NULL
+    ]
+  ];
+
   return $out;
 }
 
