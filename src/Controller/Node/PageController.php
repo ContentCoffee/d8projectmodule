@@ -5,6 +5,7 @@ namespace Drupal\project\Controller\Node;
 use Drupal\project\Controller\AbstractController;
 use Drupal\project\Entity\Node\Page;
 use Drupal\project\Repository\PageRepository;
+use Drupal\settings\Service\Settings;
 use Drupal\singles\Service\Singles;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,14 +28,16 @@ class PageController extends AbstractController {
    *
    * @param \Symfony\Component\HttpFoundation\Request $request
    * @param \Drupal\singles\Service\Singles $singles
+   * @param \Drupal\settings\Service\Settings $settings
    * @param \Drupal\project\Repository\PageRepository $pageRepository
    */
   public function __construct(
     Request $request,
     Singles $singles,
+    Settings $settings,
     PageRepository $pageRepository
   ) {
-    parent::__construct($request, $singles);
+    parent::__construct($request, $singles, $settings);
     $this->pageRepository = $pageRepository;
   }
 
@@ -50,10 +53,13 @@ class PageController extends AbstractController {
     $requestStack = $container->get('request_stack');
     /** @var Singles $singles */
     $singles = $container->get('singles');
+    /** @var Settings $settings */
+    $settings = $container->get('settings.settings');
 
     return new static(
       $requestStack->getCurrentRequest(),
       $singles,
+      $settings,
       $pageRepository
     );
   }

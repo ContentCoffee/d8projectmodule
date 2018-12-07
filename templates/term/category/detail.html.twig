@@ -1,1 +1,5 @@
-Implement term/category/detail.html.twig in the theme.
+<h1>{{ category.label() }}</h1>
+
+<p>
+    {{ category.getRandomText()|raw }}
+</p>

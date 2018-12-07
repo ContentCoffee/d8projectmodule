@@ -68,7 +68,13 @@ trait ProjectStorageTrait {
     $key = $this->entityTypeBundleKey;
 
     foreach ($records as $id => $record) {
-      $storageRecords[$this->getEntityStorageClass($record->$key)][$id] = $record;
+
+      // Drupal does not do a bundle for the user entity, so we hotwire it.
+      if ($this->entityTypeId == 'user') {
+        $storageRecords[$this->getEntityStorageClass('user')][$id] = $record;
+      } else {
+        $storageRecords[$this->getEntityStorageClass($record->$key)][$id] = $record;
+      }
     }
 
     foreach ($storageRecords as $storageClass => $storageRecord) {

@@ -1,1 +1,7 @@
-Implement a homepage/detail.html.twig in the theme.
+<h1>{{ homepage.label() }}</h1>
+<hr />
+{%
+    include '@project/bricks/bricks.html.twig' with {
+        'bricks' : homepage.getContent()
+    }
+%}

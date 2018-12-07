@@ -3,6 +3,7 @@
 namespace Drupal\project\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\settings\Service\Settings;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -24,6 +25,9 @@ abstract class AbstractController extends ControllerBase {
   /** @var Singles */
   protected $singles;
 
+  /** @var Settings */
+  protected $settings;
+
 
   /**
    * AbstractController constructor.
@@ -31,7 +35,7 @@ abstract class AbstractController extends ControllerBase {
    * @param Request $request
    * @param \Drupal\singles\Service\Singles $singles
    */
-  public function __construct(Request $request, Singles $singles) {
+  public function __construct(Request $request, Singles $singles, Settings $settings) {
     $this->request = $request;
 
     $this->breadcrumb[] = [
@@ -40,6 +44,7 @@ abstract class AbstractController extends ControllerBase {
     ];
 
     $this->singles = $singles;
+    $this->settings = $settings;
   }
 
   /**
@@ -52,9 +57,26 @@ abstract class AbstractController extends ControllerBase {
     $requestStack = $container->get('request_stack');
     /** @var Singles $singles */
     $singles = $container->get('singles');
+
+    /** @var Settings $settings */
+    $settings = $container->get('settings.settings');
     return new static(
       $requestStack->getCurrentRequest(),
-      $singles
+      $singles,
+      $settings
     );
+  }
+
+  /**
+   * Return the query string but with out a p variable.
+   * @return array|string
+   */
+  public function rebuildQueryWithOutP() {
+    // Remake the query string with out the p so pagination wont cludge.
+    $queryString = $this->request->query->all();
+    unset($queryString['p']);
+    $queryString = http_build_query($queryString);
+    $queryString = $queryString ? "&" . $queryString : '';
+    return $queryString;
   }
 }

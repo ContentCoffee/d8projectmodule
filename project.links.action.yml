@@ -1,0 +1,47 @@
+project.add_banner:
+  route_name: 'eck.entity.add'
+  route_parameters:
+    eck_entity_type: 'project'
+    eck_entity_bundle: 'banner'
+  title: 'Create Banner'
+  options:
+    query:
+      destination: '/admin/manage-banners'
+  appears_on:
+    - view.banners.page_1
+
+project.add_team_member:
+  route_name: 'eck.entity.add'
+  route_parameters:
+    eck_entity_type: 'project'
+    eck_entity_bundle: 'team_member'
+  title: 'Create Team Member'
+  options:
+    query:
+      destination: '/admin/manage-team-members'
+  appears_on:
+    - view.team_members.page_1
+
+project.add_partner:
+  route_name: 'eck.entity.add'
+  route_parameters:
+    eck_entity_type: 'project'
+    eck_entity_bundle: 'partner'
+  title: 'Create Partner'
+  options:
+    query:
+      destination: '/admin/manage-partners'
+  appears_on:
+    - view.partners.page_1
+
+project.add_event_registration:
+  route_name: 'eck.entity.add'
+  route_parameters:
+    eck_entity_type: 'project'
+    eck_entity_bundle: 'event_registration'
+  title: 'Create an Event Registration'
+  options:
+    query:
+      destination: '/admin/manage-event-registrations'
+  appears_on:
+    - view.manage_event_registrations.page_1

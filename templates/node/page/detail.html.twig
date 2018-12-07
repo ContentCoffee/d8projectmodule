@@ -1,1 +1,58 @@
-Implement node/page/detail.html.twig in the theme.
+{%
+    include '@project/components/banner.html.twig' with {
+    'entity' : page
+}
+%}
+<hr />
+{%
+    include '@project/bricks/bricks.html.twig' with {
+        'bricks' : page.getContent()
+    }
+%}
+
+
+
+
+
+
+
+
+{#
+<p>
+    {{ page.getDescription() }}
+</p>
+
+<hr />
+
+<p>
+Page Image: <br />
+{%
+    include '@project/components/image.html.twig' with {
+        'image' : page.getImage().entity,
+        'alt' : page.label(),
+        'title' : page.label(),
+        'style' : 'medium'
+    }
+%}
+</p>
+
+<hr />
+
+
+{%
+    include '@project/bricks/bricks.html.twig' with {
+        'bricks' : page.getContent()
+    }
+%}
+
+
+<hr />
+
+<div>
+    <a href="{{ data.pagesUrl }}">View all pages</a>
+</div>
+
+<div>
+    {{ page.getHelloWorld() }}
+</div>
+#}

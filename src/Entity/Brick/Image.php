@@ -33,9 +33,10 @@ class Image extends EckEntity {
     return $label . ' (' . $w . 'x' . $h . ')' . $f;
   }
 
-  /**
-   * @return \Drupal\image\Plugin\Field\FieldType\ImageItem
-   */
+	/**
+	 * @return \Drupal\image\Plugin\Field\FieldType\ImageItem
+	 * @throws \Drupal\Core\TypedData\Exception\MissingDataException
+	 */
   public function getImage() {
     /** @var \Drupal\image\Plugin\Field\FieldType\ImageItem $image */
     $image = $this->get('field_image')->first();

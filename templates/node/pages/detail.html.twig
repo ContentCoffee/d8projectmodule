@@ -1,0 +1,17 @@
+<a href="{{ path('<front>') }}">HOME</a>
+<hr />
+
+<ul>
+{% for page in data.results.items %}
+    <li>
+        {%
+            include '@project/node/page/teaser.html.twig' with {
+                'page' : page
+            }
+        %}
+    </li>
+{% endfor %}
+</ul>
+{%
+    include '@project/components/pagination.html.twig'
+%}
