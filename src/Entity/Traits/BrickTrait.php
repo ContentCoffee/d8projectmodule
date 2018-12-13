@@ -28,6 +28,7 @@ trait BrickTrait
 
   public function jsonApiIncludes() {
     return [];
+  }
 
   public function toSearchableText() {
     return '';
